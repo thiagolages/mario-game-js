@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.canvas {
+    width: 100%;
+    height: 500px;
+    border-bottom: 15px solid rgb(64, 241, 64);
+    margin: 0 auto;     
+    position: relative; /* we want objects inside it to be placed relative to it*/
+    overflow: hidden;   /* hide anything outside the canvas */
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.pipe {
+    position: absolute; /* since we're dealing with multiple elements, we don't want them to interfere with each other */
+    bottom: 0px;        /* will be displayed at the bottom of our canvas */    
+    width: 50px;        /* reduce img size */
+    /* right: 100%; */  /* no need to define 'right' here, since we'll be using the animation to do it*/    
+     /* animation name, duration, how long will it play (inf), and linear to remove accelaration */
+    animation: pipe-animation 1s infinite linear;
+    /* left: 20px; */
+}
+
+@keyframes pipe-animation {
+    from{
+        right: -50px;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+.mario {
+    position: absolute;
+    width: 100px;
+    bottom: 0;
+}
+
+.jump_class {
+    animation: mario-jump 600ms ease-out;
+}
+
+@keyframes mario-jump {
+    0% {bottom: 0;}
+    40% {bottom: 150px;}
+    50% {bottom: 150px;}
+    60% {bottom: 150px;}
+    100% {bottom: 0;}   
+}
+
+.clouds {
+    position: absolute;
+    width: 250px;
+}
+
+#clouds-1{
+    top: 0;
+    animation: cloud-animation 20s infinite linear;
+}
+
+#clouds-2{
+    top: 100px;
+    animation: cloud-animation 15s infinite linear;
+    animation-delay: -2s;
+}
+
+@keyframes cloud-animation{
+    from{
+        right: -250px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
